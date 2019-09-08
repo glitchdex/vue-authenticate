@@ -1,4 +1,4 @@
-import OAuthPopup from './popup.js'
+import OAuthContext from './oauth-context.js'
 import { $window } from '../globals.js';
 import { objectExtend, isString, isObject, isFunction, joinUrl } from '../utils.js'
 
@@ -13,7 +13,7 @@ const defaultProviderConfig = {
   requiredUrlParams: null,
   defaultUrlParams: null,
   oauthType: '1.0',
-  popupOptions: {}
+  authContextOptions: {}
 }
 
 export default class OAuth {
@@ -26,15 +26,15 @@ export default class OAuth {
   }
 
   /**
-   * Initialize OAuth1 process 
+   * Initialize OAuth1 process
    * @param  {Object} userData User data
    * @return {Promise}
    */
   init(userData) {
-    this.oauthPopup = new OAuthPopup('about:blank', this.providerConfig.name, this.providerConfig.popupOptions)
+    this.oauthContext = new OAuthContext('about:blank', this.providerConfig.name, this.providerConfig.authContextOptions)
 
     if (!$window['cordova']) {
-      this.oauthPopup.open(this.providerConfig.redirectUri, true)
+      this.oauthContext.open(this.providerConfig.redirectUri, true)
     }
 
     return this.getRequestToken().then((response) => {
@@ -70,11 +70,10 @@ export default class OAuth {
   openPopup(response) {
     const url = [this.providerConfig.authorizationEndpoint, this.buildQueryString(response[this.options.responseDataKey])].join('?');
 
-    this.oauthPopup.popup.location = url
     if ($window['cordova']) {
-      return this.oauthPopup.open(this.providerConfig.redirectUri)
+      return this.oauthContext.open(this.providerConfig.redirectUri)
     } else {
-      return this.oauthPopup.pooling(this.providerConfig.redirectUri)
+      return this.oauthContext.pooling(this.providerConfig.redirectUri)
     }
   }
 
