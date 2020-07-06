@@ -39,9 +39,6 @@
     "type": "git",
     "url": "https://github.com/twosevenxyz/vue-authenticate.git"
   },
-  "files": [
-    "dist"
-  ],
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.4.3",
