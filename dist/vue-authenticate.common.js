@@ -890,6 +890,8 @@ OAuthContext.prototype.open = function open (redirectUri, skipPooling) {
       this.iframe = document.createElement('iframe');
       this.iframe.src = this.url;
       this.iframeTarget.appendChild(this.iframe);
+    } else if (this.authContextOptions.main) {
+      window.location.href = this.url;
     } else {
       this.authWindow = window.open(this.url, this.name, this._stringifyOptions());
       if (this.authWindow && this.authWindow.focus) {
