@@ -1,5 +1,5 @@
 {
-  "name": "vue-authenticate",
+  "name": "@gurupras/vue-authenticate",
   "version": "1.4.1",
   "description": "Authentication library for Vue.js",
   "main": "dist/vue-authenticate.min.js",
@@ -30,10 +30,14 @@
   "contributors": [{
     "name": "Balazs Sarvari",
     "email": "balazs.sarvari@gmail.com"
+  },
+  {
+    "name": "Guru Prasad Srinivasa",
+    "email": "gurupras@buffalo.edu"
   }],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bsarvari/vue-authenticate.git"
+    "url": "https://github.com/twosevenxyz/vue-authenticate.git"
   },
   "files": [
     "dist"
