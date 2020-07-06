@@ -27,14 +27,16 @@
     "email": "davor.grubelic@gmail.com",
     "url": "https://dgrubelic.me"
   },
-  "contributors": [{
-    "name": "Balazs Sarvari",
-    "email": "balazs.sarvari@gmail.com"
-  },
-  {
-    "name": "Guru Prasad Srinivasa",
-    "email": "gurupras@buffalo.edu"
-  }],
+  "contributors": [
+    {
+      "name": "Balazs Sarvari",
+      "email": "balazs.sarvari@gmail.com"
+    },
+    {
+      "name": "Guru Prasad Srinivasa",
+      "email": "gurupras@buffalo.edu"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/twosevenxyz/vue-authenticate.git"
