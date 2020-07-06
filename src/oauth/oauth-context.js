@@ -68,7 +68,7 @@ export default class OAuthContext {
       const redirectUriParser = document.createElement('a')
       redirectUriParser.href = redirectUri
       const redirectUriPath = getFullUrlPath(redirectUriParser)
-  
+
       let poolingInterval = setInterval(() => {
         if (!this.iframe) {
           if (!this.authWindow || this.authWindow.closed || this.authWindow.closed === undefined) {

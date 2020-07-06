@@ -1,5 +1,5 @@
 /*!
- * vue-authenticate v1.4.2
+ * vue-authenticate v1.4.3
  * https://github.com/dgrubelic/vue-authenticate
  * Released under the MIT License.
  */
@@ -938,7 +938,7 @@ OAuthContext.prototype.pooling = function pooling (redirectUri) {
     var redirectUriParser = document.createElement('a');
     redirectUriParser.href = redirectUri;
     var redirectUriPath = getFullUrlPath(redirectUriParser);
-  
+
     var poolingInterval = setInterval(function () {
       if (!this$1.iframe) {
         if (!this$1.authWindow || this$1.authWindow.closed || this$1.authWindow.closed === undefined) {
