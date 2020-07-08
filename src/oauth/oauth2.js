@@ -134,7 +134,11 @@ export default class OAuth2 {
 
         if (paramName === 'state') {
           let stateName = this.providerConfig.name + '_state';
-          paramValue = encodeURIComponent(this.storage.getItem(stateName));
+          const value = this.storage.getItem(stateName)
+          if (!value) {
+            return
+          }
+          paramValue = encodeURIComponent(value)
         }
         if (paramName === 'scope' && Array.isArray(paramValue)) {
           paramValue = paramValue.join(this.providerConfig.scopeDelimiter);

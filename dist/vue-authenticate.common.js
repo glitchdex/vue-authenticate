@@ -1255,7 +1255,11 @@ OAuth2.prototype._stringifyRequestParams = function _stringifyRequestParams () {
 
       if (paramName === 'state') {
         var stateName = this$1.providerConfig.name + '_state';
-        paramValue = encodeURIComponent(this$1.storage.getItem(stateName));
+        var value = this$1.storage.getItem(stateName);
+        if (!value) {
+          return
+        }
+        paramValue = encodeURIComponent(value);
       }
       if (paramName === 'scope' && Array.isArray(paramValue)) {
         paramValue = paramValue.join(this$1.providerConfig.scopeDelimiter);
